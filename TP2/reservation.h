@@ -14,6 +14,7 @@ namespace reservation
     class Reservation
     {
         public:
+        std::map<std::pair<std::string, int>, std::vector<Reservation>> existingReservations;
 
         Reservation(std::string hotelId, std::string clientId, int roomNumber, int price, date::Date startDate, int numberOfNights);
         date::Date startDate();
@@ -25,8 +26,12 @@ namespace reservation
         Reservation updateReservation(std::string hotelId, std::string clientId, int roomNumber, int price, date::Date startDate, int numberOfNights);
         int reservationCost();
         std::vector<room::Room> availableRooms(std::string hotelId, std::string startDate, int numberOfNights);
+        bool isReservationPossible(std::string hotelId, int roomNumber, date::Date startDate, int numberOfNights);
+        static void addReservation(Reservation newReservation);
+        std::vector<Reservation> getReservationsForRoom(std::string hotelId, int roomNumber);
 
         private:
+        
         int _price;
         date::Date _startDate;
         int _numberOfNights;
@@ -35,8 +40,8 @@ namespace reservation
         int _roomNumber;
     };
 
-    bool reservationAvailability(std::string hotelId, int roomNumber, std::string startDate, int numberOfNights);
-}   // namespace reservation    
+}   // namespace reservation
+   
 
 
 
