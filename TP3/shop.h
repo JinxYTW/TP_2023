@@ -25,6 +25,7 @@ namespace shop
     void addClient(client::Client client);
     void showClients();
     void showClient(std::string id);
+   
     void removeProductFromShoppingCart(std::string id,std::string productname);
     void updateQuantityShoppingCart(std::string id, std::string name, int quantity);
     void upadateQuantityInShoppingCart(std::string id, std::string name, int quantity);
