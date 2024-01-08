@@ -11,7 +11,7 @@ namespace caesar{
         setCipher(getPlain());
         for (char& c : getCipher()) {
         if (std::isalpha(c) && std::islower(c)) {
-            c = 'a' + (c - 'a' + shift) % 26;
+            c = 'a' + (c - 'a' + _shift) % 26;
         }
     }
            
@@ -23,7 +23,7 @@ namespace caesar{
         setPlain(getCipher());
         for (char& c : getPlain()) {
         if (std::isalpha(c) && std::islower(c)) {
-            c = 'a' + (c - 'a' - shift + 26) % 26;
+            c = 'a' + (c - 'a' - _shift + 26) % 26;
         }
     }
 
