@@ -39,18 +39,43 @@ namespace enigma
     setCipher(result);
 }
 
-    void Enigma::decode() {
-       
+   void Enigma::decode() {
+    std::string result = "";
+    int rotor1Counter = 0;
+
+    for (char c : getCipher()) {
+        if (std::isalpha(c)) {
+            char base = (std::isupper(c)) ? 'A' : 'a';
+
+            // Passage inverse à travers le deuxième rotor
+            int index2 = std::toupper(c) - 'A';
+            c = std::find(_key2.begin(), _key2.end(), c) - _key2.begin() + 'A';
+
+            // Rotation inverse du deuxième rotor
+            rotateRotor(_key2);
+
+            // Passage inverse à travers le premier rotor
+            int index1 = std::toupper(c) - 'A';
+            c = std::find(_key.begin(), _key.end(), c) - _key.begin() + 'A';
+
+            // Rotation inverse du premier rotor
+            rotateRotor(_key);
+            rotor1Counter++;
+
+            // Si 26 rotations complètes du premier rotor, tourner le deuxième rotor
+            if (rotor1Counter == 26) {
+                rotateRotor(_key);
+                rotor1Counter = 0;  // Réinitialiser le compteur
+            }
+        }
+        // else: caractères spéciaux non modifiés
+        result += c;
     }
 
+    setPlain(result);
+}
 
 
 
-
-
-
-
-
-
-    
+   
 } // namespace enigma
