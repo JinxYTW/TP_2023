@@ -1,8 +1,9 @@
 #include "enigma.h"
 #include <iostream>
+#include <algorithm>
 namespace enigma
 {
-    Enigma::Enigma(std::vector <char> keyValue = {'B', 'D', 'A', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'},std::vector <char> keyValue2 ={'Z', 'D', 'T', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'A', 'U', 'V', 'W', 'X', 'Y', 'B'}):_key(keyValue),_key2(keyValue2){}
+    Enigma::Enigma(std::vector <char> keyValue,std::vector <char> keyValue2):_key(keyValue),_key2(keyValue2){}
 
     
 

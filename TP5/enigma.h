@@ -10,7 +10,7 @@ namespace enigma{
          Enigma(std::vector <char> keyValue = {'B', 'D', 'A', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'},std::vector <char> keyValue2 ={'Z', 'D', 'T', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'A', 'U', 'V', 'W', 'X', 'Y', 'B'});
          void encode() override;
          void decode() override;
-          void Enigma::rotateRotor(std::vector<char>& rotor);
+         void rotateRotor(std::vector<char>& rotor);
 
          protected :
          std::vector <char> _key;
