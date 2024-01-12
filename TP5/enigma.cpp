@@ -11,6 +11,10 @@ namespace enigma
         std::rotate(rotor.begin(), rotor.begin() + 1, rotor.end());
     }
 
+    void Enigma::inverseRotor(std::vector<char>& rotor) {
+        std::rotate(rotor.rbegin(), rotor.rbegin() + 1, rotor.rend());
+    }
+
     void Enigma::encode() {
     std::string result = "";
     int rotor1Counter = 0;
@@ -49,26 +53,24 @@ namespace enigma
 
     for (char c : getCipher()) {
         if (std::isalpha(c)) {
-            
 
             // Passage inverse à travers le deuxième rotor
             int index2 = std::toupper(c) - 'A';
             c = _key2[index2];
 
-            // Rotation inverse du deuxième rotor
-            rotateRotor(_key2);
+            
 
             // Passage inverse à travers le premier rotor
             int index1 = std::toupper(c) - 'A';
-            c = _key[index1];;
+            c = _key[index1];
 
-            // Rotation inverse du premier rotor
-            rotateRotor(_key);
-            rotor1Counter++;
+            
+
+            
 
             // Si 26 rotations complètes du premier rotor, tourner le deuxième rotor
             if (rotor1Counter == 26) {
-                rotateRotor(_key);
+                inverseRotor(_key);
                 rotor1Counter = 0;  // Réinitialiser le compteur
             }
         }

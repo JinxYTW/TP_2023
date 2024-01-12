@@ -11,7 +11,7 @@ namespace enigma{
          void encode() override;
          void decode() override;
          void rotateRotor(std::vector<char>& rotor);
-
+         void inverseRotor(std::vector <char>& rotor);
          protected :
          std::vector <char> _key;
          std::vector <char> _key2;
