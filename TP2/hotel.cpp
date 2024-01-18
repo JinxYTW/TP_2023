@@ -2,12 +2,9 @@
 
 namespace hotel
 {
-    Hotel::Hotel(std::string hotelId, std::string name, std::string city, std::vector<room::Room> rooms)
+    Hotel::Hotel(std::string hotelId, std::string name, std::string city, std::vector<room::Room> rooms):_hotelId(hotelId),_name(name),_city(city),_rooms(rooms)
     {
-        _hotelId = hotelId;
-        _name = name;
-        _city = city;
-        _rooms = rooms;
+        
     }
 
     std::string Hotel::name()

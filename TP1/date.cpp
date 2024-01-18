@@ -1,5 +1,6 @@
 #include "date.h"
 #include <assert.h>
+#include <string>
 
 
 namespace date {
